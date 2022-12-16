@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Input Range</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: grid;
+      place-content: center;
+      overflow: hidden;
+      background-color: rgba(0,0,0,0.81);
+    }
+
+    input[type="range"] {
+      appearance: none;
+      background: transparent;
+      width: 300px;
+      cursor: ew-resize;
+    }
+
+    input[type="range"]::-webkit-slider-runnable-track {
+      appearance: none;
+      height: 4px;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.81) var(--progress, 0%), transparent 100%);
+    }
+    
+    input[type="range"]::-webkit-slider-thumb {
+      appearance: none;
+      background: rgba(255,255,255,1);
+      width: 12px;
+      height: 12px;
+      border-radius: 12px;
+      margin-top: -4px;
+    }
+    
+    input[type="range"]:hover::-webkit-slider-thumb {
+      outline: 8px solid rgba(255,255,255,0.48);
+    }
+  </style>
+</head>
+
+<body>
+
+  <input type="range" min="0" max="100" step="1" value="0"
+    oninput="this.style.setProperty('--progress', this.value + '%')">
+
+</body>
+
+</html>
